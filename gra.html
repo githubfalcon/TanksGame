@@ -1,0 +1,68 @@
+<html>
+    <head>
+            <meta charset="utf-8">
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+            <style>
+                canvas{
+                    border: 1px black solid;
+                }
+            </style>
+            <script>
+window.onload = function() {
+    console.log("Działa");
+    window.addEventListener('keydown',dokeydown, true);
+var canvas = document.querySelector('canvas');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+var c = canvas.getContext("2d");
+
+    var tank = document.getElementById("tank");
+
+var tank_x = 60;
+var tank_y = 50
+
+c.drawImage(tank, tank_x, tank_y);
+
+function dokeydown(e){
+    if(e.keyCode==37){
+        c.clearRect(0,0, canvas.width, canvas.height);
+        tank_x-=5
+        ctx.rotate(tank)
+        c.drawImage(tank, tank_x, tank_y);
+    }
+    //cyk kolejna zmiana
+    if(e.keyCode==38){
+        c.clearRect(0,0, canvas.width, canvas.height);
+        tank_y-=5
+        c.drawImage(tank, tank_x, tank_y);
+    }
+    if(e.keyCode==39){
+        c.clearRect(0,0, canvas.width, canvas.height);
+        tank_x+=5
+        c.drawImage(tank, tank_x, tank_y);
+    }
+    if(e.keyCode==40){
+        c.clearRect(0,0, canvas.width, canvas.height);
+        tank_y+=5
+        c.drawImage(tank, tank_x, tank_y);
+    }
+}
+
+};
+
+            </script>
+            
+            
+    </head>
+    <body>
+        <canvas>Your browser does not support canvas. We recomended use <a href="chrome.com">Chrome</a> or <a href="firefox.com">Firefox</a>  or update browser.<br />
+            <a href="https://html5test.com">Test HTML5 compatibility with your browser</a>
+        
+        </canvas>
+
+        <img src="tank.png" id="tank" alt="Tekstura czołgu" style="display: none"/>
+        <script src="canvas.js">
+            
+            </script>
+    </body>
+</html>
